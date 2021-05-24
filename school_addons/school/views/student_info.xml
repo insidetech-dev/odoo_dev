@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="student_form_view" model = "ir.ui.view">
+        <field name="name">student details</field>
+        <field name="model">school.table.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="roll_number"/>
+                        <field name="school_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="student_tree_view" model = "ir.ui.view">
+        <field name="name">student info</field>
+        <field name="model">school.table.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                        <field name="name"/>
+                        <field name="roll_number"/>
+                        <field name="school_id"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_extends_form_view" model = "ir.ui.view">
+        <field name="name">school extends</field>
+        <field name="model">school.table.schools</field>
+        <field name="inherit_id" ref="school_form_view"/>
+        <field name="arch" type="xml">
+            <field name="win_percentage" position="after">
+                <field name="schools"/>
+
+            </field>
+        </field>
+    </record>
+
+</odoo>

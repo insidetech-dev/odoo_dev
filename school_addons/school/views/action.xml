@@ -1,0 +1,25 @@
+<odoo>
+<!--    school action-->
+    <record id="school_action" model="ir.actions.act_window">
+        <field name="name">school</field>
+        <field name="res_model">school.table.schools</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>school details here!!!</p>
+        </field>
+    </record>
+
+<!--    student action-->
+    <record id="student_action" model="ir.actions.act_window">
+        <field name="name">student</field>
+        <field name="res_model">school.table.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>student details here!!!</p>
+        </field>
+    </record>
+
+    <menuitem name="school" id="menu_item_school"/>
+    <menuitem name="school details" id="menu_item_school_details" parent="menu_item_school" action="school_action"/>
+    <menuitem name="student" id="menu_item_student_details" parent="menu_item_school" action="student_action"/>
+</odoo>

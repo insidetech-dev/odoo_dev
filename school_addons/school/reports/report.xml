@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report
+            id="report_school_card"
+            model="school.table.schools"
+            string="school details"
+            report_type="qweb-pdf"
+            name="school.report_school"
+            file="school.report_school"
+        />
+</odoo>
+
