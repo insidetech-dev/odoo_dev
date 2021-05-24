@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_college_kanban" model="ir.ui.view">
+        <field name="name">college.kanban</field>
+        <field name="model">college.colleges</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="college_number"/>
+                <field name="address"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_details">
+                                <ul>
+                                    <li>
+                                        Name:
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        College number:
+                                        <field name="college_number"/>
+                                    </li>
+                                    <li>
+                                        Address:
+                                        <field name="address"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_college_form" model="ir.ui.view">
+        <field name="name">college.form</field>
+        <field name="model">college.colleges</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="college_number"/>
+                        <field name="address"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="college_search" model="ir.ui.view">
+        <field name="name">college.search</field>
+        <field name="model">college.colleges</field>
+        <field name="arch" type="xml">
+            <search string="colleges">
+                <field name="name"/>
+                <field name="address"/>
+                <group expand="1" string="Group By">
+                    <filter string="college name" name="name" context="{'group_by':'name'}"/>
+                    <filter string="address" name="address" context="{'group_by':'address'}"/>
+
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_college_tree" model="ir.ui.view">
+        <field name="name">college.college.tree</field>
+        <field name="model">college.colleges</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="college_number"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    action-->
+    <record id="college_action" model="ir.actions.act_window">
+        <field name="name">college</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">college.colleges</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="view face">
+                college details here!!!
+            </p>
+        </field>
+    </record>
+    <!--for menu-->
+    <menuitem id="college_root"
+              name="college"
+              sequence="10"/>
+
+    <menuitem id="college_colleges_root"
+              name="college"
+              parent="college_root"
+              sequence="10"/>
+
+    <menuitem id="college_college_root"
+              name="college"
+              parent="college_colleges_root"
+              action="college_action"
+              sequence="10"/>
+
+
+</odoo>

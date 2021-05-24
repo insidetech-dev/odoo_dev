@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report
+            id="report_college_card"
+            model="college.colleges"
+            string="college details"
+            report_type="qweb-pdf"
+            name="om_college.report_college"
+            file="om_college.report_college"/>
+</odoo>
+
